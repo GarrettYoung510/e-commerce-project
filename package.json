@@ -1,5 +1,4 @@
 {
-  "main": "server/",
   "name": "e-commerce-project",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +18,15 @@
     "react-scripts": "3.1.1",
     "redux": "^4.0.4"
   },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "now-start": "node server/index.js",
+    "deploy": "now --public --dotenv=.env.prod -d"
+  },
+  "main": "server/",
   "proxy": {
     "/auth/callback": {
       "target": "http://localhost:5000"
@@ -27,16 +35,8 @@
       "target": "http://localhost:5000"
     }
   },
-  "now":{
+  "now": {
     "alias": "ali-store"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "now-start": "node server/index.js",
-    "deploy": "now --public --dotenv=.env.prod -d"
   },
   "eslintConfig": {
     "extends": "react-app"
