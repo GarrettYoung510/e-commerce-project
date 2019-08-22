@@ -22,12 +22,12 @@ export default class Home extends Component {
     }
     componentDidMount() {
         axios.get('/api/products').then(res => {
+            // Always have console.logs for debugging
+            console.log('res.data products-----------', res.data);
+            ///// Set loading to false, and products to the res.data, since we are doing res.send in our backend
+            this.setState({ products: res.data, loading: false });
             // Each .then must have a .catch to catch errors
         }).catch(err => console.log('Read all products Error-------', err));
-        // Always have console.logs for debugging
-        console.log('res.data products-----------', res.data);
-        ///// Set loading to false, and products to the res.data, since we are doing res.send in our backend
-        this.setState({ products: res.data, loading: false });
     }
     render() {
         // Destruct the products, loading from state
@@ -43,7 +43,7 @@ export default class Home extends Component {
                 </div>
             );
         } else {
-            //Render Loader 
+            // Render Loader 
             return <Loader />
         }
     }
