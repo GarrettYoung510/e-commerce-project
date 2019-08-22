@@ -66,7 +66,10 @@ app.post('/api/user-data/cart', userController.addToCart);
 // Use request parameter to remove item from cart since you are looking a specific item in cart.
 app.delete('/api/user-data/cart/:id', userController.removeFromCart);
 //When user login
-app.post('/api/login', userController.login)
+// BEFORE
+app.post('/api/login', userController.login);
+// AFTER
+app.get('/auth/callback', userController.login);
 //NO NEED FOR A REGISTER SINCE YOUR ARE USING AUTH0.
 //Just need a login, since you are logging from your social media provider no need to register, only looks if a user already has a account.
 //When the user logouts
