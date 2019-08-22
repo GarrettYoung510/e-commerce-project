@@ -9,6 +9,7 @@
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "http-proxy-middleware": "^0.19.1",
     "mongoose": "^5.6.9",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -27,14 +28,6 @@
     "deploy": "now --public --dotenv=.env.prod -d"
   },
   "main": "server/",
-  "proxy": {
-    "/auth/callback": {
-      "target": "http://localhost:5000"
-    },
-    "/api": {
-      "target": "http://localhost:5000"
-    }
-  },
   "now": {
     "alias": "ali-store"
   },
