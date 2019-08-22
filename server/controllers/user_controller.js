@@ -9,7 +9,6 @@ module.exports = {
     addToCart(req, res) {
     },
     removeFromCart(req, res) {
-
     },
 
     login(req, res) {
@@ -21,6 +20,7 @@ module.exports = {
             grant_type: 'authorization_code',
             redirect_uri: `http://${req.headers.host}/auth/callback`
         }).then(accessTokenResponse => {
+            // Now Get user info
             //Get the data from the response. 
             const accessToken = accessTokenResponse.data.access_token;
             console.log(accessToken)
