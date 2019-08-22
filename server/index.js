@@ -1,6 +1,6 @@
-//Configure the env file
+//Configure the env file 
 require('dotenv').config();
-//Middlewares
+//Middlewares 
 //Configure body-parser so you can retrieve values from the req.body, if not the req.body will be undefined.
 const bodyParser = require("body-parser");
 //Require the session for saving user data and giving a user a unique experience.
@@ -9,7 +9,7 @@ const session = require('express-session');
 const cors = require('cors');
 //
 //Controllers
-//These are how we define our endpoints
+//These are how we define our endpoints 
 //Note can name all the variable anything you want  I am just operating on convention or best practice.
 //Set your admin functionality
 const adminController = require('./controllers/admin_controller');
@@ -20,43 +20,47 @@ const userController = require('./controllers/user_controller');
 //Set your products functionality.
 const productsController = require('./controllers/products_controller');
 //
-//Import your mongoose module to connect to your mongodb database instance using it's connection string.
+//Import your mongoose module to connect to your mongodb database instance using it's connection string. 
 const mongoose = require('mongoose');
 //Import your express server
 const express = require('express');
-//Set instance of the express server to a variable
+//Set instance of the express server to a variable 
 const app = express();
 //Define the Port your will be running your server on.
 //NOTE: Make sure the POrt is the same as the proxy.
-const PORT = 4000;
+const PORT = 5000;
 //Connect the mongoose to the database using it's connect method.
-mongoose.connect(process.env.CONNECTION_STRING, (err) => {
-if(err) {
-console.log('Database Error----------------', err);
-}
-console.log('Connected to database');
+mongoose.connect(process.env.CONNECTION_STRING,
+    { useNewUrlParser: true },
+    (err) => {
+    if(err) {
+        console.log('Database Error----------------', err);
+    }
+    console.log('Connected to database');
 });
-//Middleware
+//Middleware 
 //For initializing the req.body. If the middleware is not used, the req.body is undefined.
 app.use(bodyParser.json());
+
 //For storing cookies for the user.
 app.use(session({
-//Create a secret for the cookie store it in .env file
-//Secret can be anything.
-secret: process.env.SESSION_SECRET,
-//this for resaving the cookie false, if true can cause a memory leak.
-resave: false,
-//saveUnitialized best false, unless connect to a database.
-saveUninitialized: false,
-cookie: {
-//The max age of the cookie
-maxAge: 1000 * 60 * 60 * 24 * 14
-}
+    //Create a secret for the cookie store it in .env file 
+    //Secret can be anything.
+    secret: process.env.SESSION_SECRET,
+    //this for resaving the cookie false, if true can cause a memory leak.
+   resave: false,
+   //saveUnitialized best false, unless connect to a database.
+    saveUninitialized: false,
+    cookie: {
+        //The max age of the cookie
+        maxAge: 1000 * 60 * 60 * 24 * 14
+    }
 }));
 //Allow cross origin requests.
-app.use(cors());
-//User endpoints
-//Use when retrieving user data from request session. We middleware we defined earlier.
+//  app.use(cors());
+
+//User endpoints 
+//Use when retrieving user data from request session. We middleware we defined earlier. 
 setTimeout(() => {
 //Read the user's session.
 app.get('/api/user-data', userController.readUserData);
