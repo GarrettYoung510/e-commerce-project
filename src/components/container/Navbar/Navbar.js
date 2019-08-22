@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './Navbar.css';
 // import withRouter so, you can access this.props.history
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 export class Navbar extends Component {
     // Define linkFunc so it redirects to specified route provided
@@ -34,5 +35,11 @@ export class Navbar extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+
 // Then wrap our Component with the HOC, and the connect double invoked
-export default withRouter(Navbar);
+export default withRouter(connect(mapStateToProps)(Navbar));

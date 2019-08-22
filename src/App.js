@@ -9,22 +9,25 @@ import { withRouter } from 'react-router-dom';
 // import axios to get your user session from your backend
 import axios from 'axios';
 import './App.css';
+import { connect } from 'react-redux';
+// Import actions that will be implemented in your reducer
+import { login, logout } from './redux/reducer';
 
 class App extends Component {
   // Get the session in componentDidMount, and if it has data set intialState user to it
   componentDidMount() {
     axios.get('/api/user-data')
-    // .then(res => {
-    //   const { dispatch } = this.props;
-    //   if (res.data.user) {
-    //     //Dispatch the login function with the user data. 
-    //     dispatch(login(res.data.user));
-    //     //Else logout the user from the intialState.
-    //   } else {
-    //     //Dispatch the logout the user by default if there is no data in session.
-    //     dispatch(logout());
-    //   }
-    // })
+    .then(res => {
+      const { dispatch } = this.props;
+      if (res.data.user) {
+        //Dispatch the login function with the user data. 
+        dispatch(login(res.data.user));
+        //Else logout the user from the intialState.
+      } else {
+        //Dispatch the logout the user by default if there is no data in session.
+        dispatch(logout());
+      }
+    })
   }
 
   render() {
@@ -38,4 +41,4 @@ class App extends Component {
 }
 
 // Then connect app to reducer
-export default withRouter(App);
+export default withRouter(connect()(App));
