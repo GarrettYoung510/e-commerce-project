@@ -2,9 +2,15 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// Add Navbar to all pages
+import Navbar from './components/container/Navbar/Navbar';
+import Home from'./components/container/Home/Home';
+
 function App() {
   return (
     <div className="App">
+      <Navbar />
+      <Home />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
