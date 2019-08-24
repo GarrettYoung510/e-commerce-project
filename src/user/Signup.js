@@ -25,6 +25,7 @@ const Signup = () => {
             },
             body: JSON.stringify(user)
         })
+        // promise to respond with json
             .then(response => {
                 return response.json();
             })
