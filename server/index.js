@@ -29,15 +29,20 @@ const app = express();
 //Define the Port your will be running your server on.
 //NOTE: Make sure the POrt is the same as the proxy.
 const PORT = 5000;
+// Require axios to use in place of proxy
+const axios = require('axios');
 //Connect the mongoose to the database using it's connect method.
-mongoose.connect(process.env.CONNECTION_STRING,
+// mongoose.connect(process.env.CONNECTION_STRING,
+mongoose.connect(process.env.MONGODB_URI,
     { useNewUrlParser: true },
+    ('useFindAndModify', false),
+    ('useCreateIndex', true),
     (err) => {
-    if(err) {
-        console.log('Database Error----------------', err);
-    }
-    console.log('Connected to database');
-});
+        if (err) {
+            console.log('Database Error----------------', err);
+        }
+        console.log('Connected to database');
+    });
 //Middleware 
 //For initializing the req.body. If the middleware is not used, the req.body is undefined.
 app.use(bodyParser.json());
@@ -48,8 +53,8 @@ app.use(session({
     //Secret can be anything.
     secret: process.env.SESSION_SECRET,
     //this for resaving the cookie false, if true can cause a memory leak.
-   resave: false,
-   //saveUnitialized best false, unless connect to a database.
+    resave: false,
+    //saveUnitialized best false, unless connect to a database.
     saveUninitialized: false,
     cookie: {
         //The max age of the cookie
@@ -62,37 +67,39 @@ app.use(session({
 //User endpoints 
 //Use when retrieving user data from request session. We middleware we defined earlier. 
 setTimeout(() => {
-//Read the user's session.
-app.get('/api/user-data', userController.readUserData);
-//Add a item to cart.
-app.post('/api/user-data/cart', userController.addToCart);
-//Remove a item from the cart.
-// Use request parameter to remove item from cart since you are looking a specific item in cart.
-app.delete('/api/user-data/cart/:id', userController.removeFromCart);
-//When user login
-// BEFORE
-app.post('/api/login', userController.login);
-// AFTER
-app.get('/auth/callback', userController.login);
-//NO NEED FOR A REGISTER SINCE YOUR ARE USING AUTH0.
-//Just need a login, since you are logging from your social media provider no need to register, only looks if a user already has a account.
-//When the user logouts
-app.post('/api/logout', userController.logout);
-//Products Endpoints
-//Getting all the products
-app.get('/api/products', productsController.readAllProducts);
-//Getting a specified product
-//Use a request parameter, since retrieving a specified product..
-app.get('/api/products/:id', productsController.readProduct);
-//Admin Endpoints
-//Gets the admin users.
-app.get('/api/users', adminController.getAdminUsers);
-//When a admin creates a product. No need for request parameter in this case. Since we are inserting data to database.
-app.post('/api/products', adminController.createProduct);
-//When a admin update a current product. Need request parameter since updating a specific product based on  the id.
-app.put('/api/products/:id', adminController.updateProduct);
-//When a admin deletes a product, need an id to specify a product to delete.
-app.delete('/api/products/:id', adminController.deleteProduct);
+    //Now setup cloudinary this endpoint will get the credentials from cloudinary_controller which will be signed. 
+    axios.get('/api/upload', cloudinaryController.upload);
+    //Read the user's session.
+    axios.get('/api/user-data', userController.readUserData);
+    //Add a item to cart.
+    app.post('/api/user-data/cart', userController.addToCart);
+    //Remove a item from the cart.
+    // Use request parameter to remove item from cart since you are looking a specific item in cart.
+    app.delete('/api/user-data/cart/:id', userController.removeFromCart);
+    //When user login
+    // BEFORE
+    app.post('/api/login', userController.login);
+    // AFTER
+    axios.get('/auth/callback', userController.login);
+    //NO NEED FOR A REGISTER SINCE YOUR ARE USING AUTH0.
+    //Just need a login, since you are logging from your social media provider no need to register, only looks if a user already has a account.
+    //When the user logouts
+    app.post('/api/logout', userController.logout);
+    //Products Endpoints
+    //Getting all the products
+    axios.get('/api/products', productsController.readAllProducts);
+    //Getting a specified product
+    //Use a request parameter, since retrieving a specified product..
+    axios.get('/api/products/:id', productsController.readProduct);
+    //Admin Endpoints
+    //Gets the admin users.
+    axios.get('/api/users', adminController.getAdminUsers);
+    //When a admin creates a product. No need for request parameter in this case. Since we are inserting data to database.
+    app.post('/api/products', adminController.createProduct);
+    //When a admin update a current product. Need request parameter since updating a specific product based on  the id.
+    app.put('/api/products/:id', adminController.updateProduct);
+    //When a admin deletes a product, need an id to specify a product to delete.
+    app.delete('/api/products/:id', adminController.deleteProduct);
 }, 200);
 ///THen listen on the port.
 app.listen(PORT, () => console.log('Listening on Port:', PORT));
