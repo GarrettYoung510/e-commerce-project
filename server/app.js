@@ -29,6 +29,9 @@ app.use(expressValidator());
 
 // routes middleware
 app.use("/api", userRoutes);
+app.use("/api", userRoutes);
+app.use("/api", categoryRoutes);
+app.use("/api", productRoutes);
 
 const port = process.env.PORT || 3000;
 
