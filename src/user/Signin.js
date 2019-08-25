@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // reacts version of a tags
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Layout from "../core/Layout";
 import { signin, authenticate } from "../auth";
 
@@ -87,7 +87,7 @@ const Signin = () => {
     );
 
   const redirectUser = () => {
-    if (redirectUser) {
+    if (redirectToReferrer) {
       return <Redirect to="/" />;
     }
   };
