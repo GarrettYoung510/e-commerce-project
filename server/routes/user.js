@@ -11,6 +11,10 @@ router.get("/secret/:userId", requireSignin, isAuth, isAdmin, (req, res) => {
   });
 });
 
+// READ and UPDATE user profile 
+router.get("/user/:userId", requireSignin, isAuth, read);
+router.put("/user/:userId", requireSignin, isAuth, update);
+
 // anytime there is a userid the router will run the method userById
 router.param("userId", userById);
 
