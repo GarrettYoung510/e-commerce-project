@@ -60,7 +60,6 @@ exports.requireSignin = expressJwt({
 exports.isAuth = (req, res, next) => {
   let user = req.profile && req.auth && req.profile._id == req.auth._id;
   if (!user) {
-    // status code 403 is unauthorized
     return res.status(403).json({
       error: "Access denied"
     });
@@ -70,10 +69,8 @@ exports.isAuth = (req, res, next) => {
 
 exports.isAdmin = (req, res, next) => {
   if(req.profile.role === 0) {
-    // status code 403 is unauthorized
     return res.status(403).json ({
       error: "Admin resource! Access denied."
     })
   }
-  next();
 }
