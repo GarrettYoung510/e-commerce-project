@@ -20,31 +20,42 @@ const Menu = ({ history }) => (
       </li>
 
       {isAuthenticated() && isAuthenticated().user.role === 0 && (
-              <li className="nav-item">
-              <Link
-                className="nav-link"
-                style={isActive(history, "/user/dashboard")}
-                to="/user/dashboard"
-              >
-                Dashboard
+        <li className="nav-item">
+          <Link
+            className="nav-link"
+            style={isActive(history, "/user/dashboard")}
+            to="/user/dashboard"
+          >
+            Dashboard
                       </Link>
-            </li>
-      
+        </li>
+
       )}
 
+      {/* Links to shop where user can filter what products they see */}
+      <li className="nav-item">
+        <Link
+          className="nav-link"
+          style={isActive(history, "/shop")}
+          to="/shop"
+        >
+          Shop
+                </Link>
+      </li>
+
       {isAuthenticated() && isAuthenticated().user.role === 1 && (
-              <li className="nav-item">
-              <Link
-                className="nav-link"
-                style={isActive(history, "/admin/dashboard")}
-                to="/admin/dashboard"
-              >
-                Dashboard
+        <li className="nav-item">
+          <Link
+            className="nav-link"
+            style={isActive(history, "/admin/dashboard")}
+            to="/admin/dashboard"
+          >
+            Dashboard
                       </Link>
-            </li>
-      
+        </li>
+
       )}
-      {/* if not authenticated we only show those two blocks of sign in and sign up */}
+      {/* If not authenticated we only show those two blocks of sign in and sign up */}
       {!isAuthenticated() && (
         <Fragment>
           <li className="nav-item">
@@ -76,7 +87,7 @@ const Menu = ({ history }) => (
             style={{ cursor: "pointer", color: "#ffffff" }}
             onClick={() =>
               signout(() => {
-                // pushes user to the home page
+                // Pushes user to the home page
                 history.push("/");
               })
             }
