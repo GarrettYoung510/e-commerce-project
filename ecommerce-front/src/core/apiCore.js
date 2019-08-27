@@ -46,6 +46,15 @@ export const getFilteredProducts = (skip, limit, filters = {}) => {
     });
 };
 
+// GET request for reading product
+export const read = (productId) => {
+  return fetch(`${API}/product/${productId}`, {
+    method: "GET"
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
 // For getting the response from Search
 export const list = params => {
   const query = queryString.stringify(params);
