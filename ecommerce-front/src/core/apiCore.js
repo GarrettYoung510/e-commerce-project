@@ -47,7 +47,7 @@ export const getFilteredProducts = (skip, limit, filters = {}) => {
 };
 
 // GET request for reading product
-export const read = (productId) => {
+export const read = productId => {
   return fetch(`${API}/product/${productId}`, {
     method: "GET"
   })
@@ -55,15 +55,28 @@ export const read = (productId) => {
       return response.json();
     })
     .catch(err => console.log(err));
+};
+
 // For getting the response from Search
 export const list = params => {
   const query = queryString.stringify(params);
   console.log("query", query);
   return fetch(`${API}/products/search?${query}`, {
-      method: "GET"
+    method: "GET"
   })
-      .then(response => {
-          return response.json();
-      })
-      .catch(err => console.log(err));
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
+
+// GET request for listRelated
+export const listRelated = (productId) => {
+  return fetch(`${API}/products/related/${productId}`, {
+    method: "GET"
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
 };
