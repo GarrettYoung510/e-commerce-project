@@ -43,3 +43,14 @@ export const getFilteredProducts = (skip, limit, filters = {}) => {
       console.log(err);
     });
 };
+
+// GET request for reading product
+export const read = (productId) => {
+  return fetch(`${API}/product/${productId}`, {
+    method: "GET"
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
