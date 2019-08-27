@@ -51,7 +51,7 @@ const Shop = () => {
         setFilteredResults([...filteredResults, ...data.data]);
         setSize(data.size);
         // use this to load more
-        setSkip(0);
+        setSkip(toSkip);
       }
     });
   };
