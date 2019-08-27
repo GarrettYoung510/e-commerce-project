@@ -154,7 +154,6 @@ exports.update = (req, res) => {
     });
 };
 
-
 // This is how we GET products based on how many are sold or when they arrive
 /**
  * sell / arrival
@@ -220,7 +219,7 @@ exports.listCategories = (req, res) => {
  * we will implement product search in react frontend
  * we will show categories in checkbox and price range in radio buttons
  * as the user clicks on those checkbox and radio buttons
- * we will make api request and show the products to users based on what they want
+ * we will make api request and show the products to users based on what he wants
  */
 
 exports.listBySearch = (req, res) => {
@@ -273,4 +272,27 @@ exports.photo = (req, res, next) => {
         return res.send(req.product.photo.data);
     }
     next();
+};
+
+exports.listSearch = (req, res) => {
+    // create query object to hold search value and category value
+    const query = {};
+    // assign search value to query.name
+    if (req.query.search) {
+        query.name = { $regex: req.query.search, $options: "i" };
+        // assigne category value to query.category
+        if (req.query.category && req.query.category != "All") {
+            query.category = req.query.category;
+        }
+        // find the product based on query object with 2 properties
+        // search and category
+        Product.find(query, (err, products) => {
+            if (err) {
+                return res.status(400).json({
+                    error: errorHandler(err)
+                });
+            }
+            res.json(products);
+        }).select("-photo");
+    }
 };
