@@ -20,3 +20,28 @@ exports.generateToken = (req, res) => {
     }
   });
 };
+
+// controller method for processing payment takes in 2 parameters the request and the response
+exports.processPayment = (req, res) => {
+  // nonefrom the client is the how we structue in backend req.body.paymentmethodnonce
+  let nonceFromTheClient = req.body.paymentMethodNonce;
+  // this is the amount 
+  let amountFromTheClient = req.body.amount;
+  // charge per braintree documentation
+  let newTransaction = gateway.transaction.sale(
+    {
+      amount: amountFromTheClient,
+      paymentMethodNonce: nonceFromTheClient,
+      options: {
+        submitForSettlement: true
+      }
+    },
+    (error, result) => {
+      if (error) {
+        res.status(500).json(error);
+      } else {
+        res.json(result);
+      }
+    }
+  );
+};
