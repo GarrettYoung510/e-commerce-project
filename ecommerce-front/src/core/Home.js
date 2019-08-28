@@ -47,7 +47,7 @@ const Home = () => {
       <h2 className="mb-4">New Arrivals</h2>
       <div className="row">
         {productsByArrival.map((product, i) => (
-            // using key in div instead of card to take effect on the div
+          // using key in div instead of card to take effect on the div
           <div key={i} className="col-4 mb-3">
             <Card product={product} />
           </div>

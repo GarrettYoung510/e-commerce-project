@@ -15,9 +15,13 @@ const Menu = ({ history }) => (
   <div>
     <ul className="nav nav-tabs bg-primary">
       <li className="nav-item">
-        <Link className="nav-link" style={isActive(history, "/")} to="/">
+        <Link
+          className="nav-link"
+          style={isActive(history, "/")}
+          to="/"
+        >
           Home
-        </Link>
+              </Link>
       </li>
 
       <li className="nav-item">
@@ -27,7 +31,7 @@ const Menu = ({ history }) => (
           to="/shop"
         >
           Shop
-                </Link>
+              </Link>
       </li>
 
       <li className="nav-item">
@@ -51,21 +55,9 @@ const Menu = ({ history }) => (
             to="/user/dashboard"
           >
             Dashboard
-                      </Link>
+                  </Link>
         </li>
-
       )}
-
-      {/* Links to shop where user can filter what products they see */}
-      <li className="nav-item">
-        <Link
-          className="nav-link"
-          style={isActive(history, "/shop")}
-          to="/shop"
-        >
-          Shop
-                </Link>
-      </li>
 
       {isAuthenticated() && isAuthenticated().user.role === 1 && (
         <li className="nav-item">
@@ -75,10 +67,10 @@ const Menu = ({ history }) => (
             to="/admin/dashboard"
           >
             Dashboard
-                      </Link>
+                  </Link>
         </li>
-
       )}
+      
       {/* If not authenticated we only show those two blocks of sign in and sign up */}
       {!isAuthenticated() && (
         <Fragment>
