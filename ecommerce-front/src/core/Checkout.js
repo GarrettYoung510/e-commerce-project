@@ -89,7 +89,7 @@ const Checkout = ({ products }) => {
               products: products,
               transaction_id: response.transaction.id,
               amount: response.transaction.amount,
-              address: data.address
+              address: deliveryAddress
             };
 
             createOrder(userId, token, createOrderData)
@@ -121,11 +121,19 @@ const Checkout = ({ products }) => {
   };
 
   const showDropIn = () => (
-    //   onBlur means if you click anywhere on the page it will run
-    // more in on react events like onClick
     <div onBlur={() => setData({ ...data, error: "" })}>
       {data.clientToken !== null && products.length > 0 ? (
         <div>
+          <div className="gorm-group mb-3">
+            <label className="text-muted">Delivery address:</label>
+            <textarea
+              onChange={handleAddress}
+              className="form-control"
+              value={data.address}
+              placeholder="Type your delivery address here..."
+            />
+          </div>
+
           <DropIn
             options={{
               authorization: data.clientToken,
@@ -136,8 +144,8 @@ const Checkout = ({ products }) => {
             onInstance={instance => (data.instance = instance)}
           />
           <button onClick={buy} className="btn btn-success btn-block">
-            Authorize Payment
-          </button>
+            Pay
+                </button>
         </div>
       ) : null}
     </div>
@@ -148,7 +156,6 @@ const Checkout = ({ products }) => {
       className="alert alert-danger"
       style={{ display: error ? "" : "none" }}
     >
-      {/* displays error using bootstraps alert if error */}
       {error}
     </div>
   );
@@ -158,11 +165,12 @@ const Checkout = ({ products }) => {
       className="alert alert-info"
       style={{ display: success ? "" : "none" }}
     >
-      Thank you! Your payment was successful!
+      Thanks! Your payment was successful!
     </div>
   );
 
-  const showLoading = loading => loading && <h2>Loading...</h2>;
+  const showLoading = loading =>
+    loading && <h2 className="text-danger">Loading...</h2>;
 
   return (
     <div>
