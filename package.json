@@ -1,0 +1,27 @@
+{
+  "name": "e-commerce-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "proxy": "http://localhost:5000",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd ecommerce-front && npm start",
+    "server": "cd ecommerce-back && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birnapwnsu/e-commerce-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/birnapwnsu/e-commerce-project/issues"
+  },
+  "homepage": "https://github.com/birnapwnsu/e-commerce-project#readme",
+  "dependencies": {
+    "concurrently": "^4.1.2"
+  }
+}
