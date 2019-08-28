@@ -1,6 +1,7 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState } from "react";
 
 const RadioBox = ({ prices, handleFilters }) => {
+  // eslint-disable-next-line
   const [value, setvalue] = useState(0);
 
   const handleChange = event => {

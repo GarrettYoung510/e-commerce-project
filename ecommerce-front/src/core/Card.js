@@ -47,7 +47,7 @@ const Card = ({
           className="btn btn-outline-warning mt-2 mb-2"
         >
           Add to cart
-                </button>
+            </button>
       )
     );
   };
@@ -60,10 +60,11 @@ const Card = ({
           className="btn btn-outline-danger mt-2 mb-2"
         >
           Remove Product
-                </button>
+            </button>
       )
     );
   };
+
 
   // Shows whether an item is in stock or not
   const showStock = quantity => {
@@ -90,7 +91,7 @@ const Card = ({
             <div className="input-group-prepend">
               <span className="input-group-text">
                 Adjust Quantity
-                            </span>
+                        </span>
             </div>
             <input
               type="number"
