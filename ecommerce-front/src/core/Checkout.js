@@ -60,6 +60,8 @@ const Checkout = ({ products }) => {
       );
   };
 
+  let deliveryAddress = data.address;
+
   const buy = () => {
     setData({ loading: true });
     //   send the nonce to your server
