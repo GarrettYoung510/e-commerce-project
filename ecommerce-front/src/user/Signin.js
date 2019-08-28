@@ -6,9 +6,9 @@ import { signin, authenticate, isAuthenticated } from "../auth";
 
 const Signin = () => {
   const [values, setValues] = useState({
-    email: "test",
-    password: "test@gmail.com",
-    error: "password3",
+    email: "",
+    password: "",
+    error: "",
     loading: false,
     redirectToReferrer: false
   });
@@ -74,12 +74,12 @@ const Signin = () => {
 
   const showError = () => (
     <div
-      className="alert alert-danger"
-      style={{ display: error ? "" : "none" }}
+        className="alert alert-danger"
+        style={{ display: error ? "" : "none" }}
     >
-      {error}
+        {error}
     </div>
-  );
+);
 
   const showLoading = () =>
     loading && (
