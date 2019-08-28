@@ -3,12 +3,14 @@ import Layout from "./Layout";
 import {
   getProducts,
   getBraintreeClientToken,
-  processPayment
+  processPayment,
+  createOrder
 } from "./apiCore";
 import { emptyCart } from "./cartHelpers";
 import Card from "./Card";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
+import "braintree-web";
 import DropIn from "braintree-web-drop-in-react";
 
 const Checkout = ({ products }) => {
@@ -38,6 +40,10 @@ const Checkout = ({ products }) => {
     getToken(userId, token);
   }, []);
 
+  const handleAddress = event => {
+    setData({ ...data, address: event.target.value });
+  };
+
   const getTotal = () => {
     return products.reduce((currentValue, nextValue) => {
       return currentValue + nextValue.count * nextValue.price;
@@ -48,10 +54,10 @@ const Checkout = ({ products }) => {
     return isAuthenticated() ? (
       <div>{showDropIn()}</div>
     ) : (
-      <Link to="/signin">
-        <button className="btn btn-primary">Sign in to checkout</button>
-      </Link>
-    );
+        <Link to="/signin">
+          <button className="btn btn-primary">Sign in to checkout</button>
+        </Link>
+      );
   };
 
   const buy = () => {
@@ -79,18 +85,33 @@ const Checkout = ({ products }) => {
         processPayment(userId, token, paymentData)
           .then(response => {
             // console.log(response)
-            setData({ ...data, success: response.success });
-            // empty cart
-            emptyCart(() => {
-              console.log("payment success and empty cart");
-              // reset loading state to false
-              setData({ loading: false });
-            });
-            // create order
+            const createOrderData = {
+              products: products,
+              transaction_id: response.transaction.id,
+              amount: response.transaction.amount,
+              address: data.address
+            };
+
+            createOrder(userId, token, createOrderData)
+              .then(response => {
+                emptyCart(() => {
+                  console.log(
+                    "payment success and empty cart"
+                  );
+                  setData({
+                    loading: false,
+                    success: true
+                  });
+                });
+              })
+              .catch(error => {
+                console.log(error);
+                setData({ loading: false });
+              });
           })
           .catch(error => {
             console.log(error);
-            setData({ loading: true });
+            setData({ loading: false });
           });
       })
       .catch(error => {
