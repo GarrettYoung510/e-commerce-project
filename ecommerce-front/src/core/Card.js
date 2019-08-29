@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import ShowImage from "./ShowImage";
 import moment from "moment";
 import { addItem, updateItem, removeItem } from "./cartHelpers";
+import "../styles.css";
 
 const Card = ({
   product,
@@ -47,7 +48,7 @@ const Card = ({
           className="btn btn-outline-warning mt-2 mb-2"
         >
           Add to cart
-                </button>
+            </button>
       )
     );
   };
@@ -60,10 +61,11 @@ const Card = ({
           className="btn btn-outline-danger mt-2 mb-2"
         >
           Remove Product
-                </button>
+            </button>
       )
     );
   };
+
 
   // Shows whether an item is in stock or not
   const showStock = quantity => {
@@ -90,7 +92,7 @@ const Card = ({
             <div className="input-group-prepend">
               <span className="input-group-text">
                 Adjust Quantity
-                            </span>
+                        </span>
             </div>
             <input
               type="number"
@@ -115,10 +117,10 @@ const Card = ({
         </p>
         <p className="black-10">${product.price}</p>
         <p className="black-9">
-          Category: {product.category && product.category.name}
+          <span className="cardLabel">Category: </span> {product.category && product.category.name}
         </p>
         <p className="black-8">
-          Added on {moment(product.createdAt).fromNow()}
+          <span className="cardLabel">Added </span>{moment(product.createdAt).fromNow()}
         </p>
 
         {showStock(product.quantity)}

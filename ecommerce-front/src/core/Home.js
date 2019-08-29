@@ -39,8 +39,8 @@ const Home = () => {
 
   return (
     <Layout
-      title="Home Page"
-      description="Node React E-commerce App"
+      title="True Hermit Essentials"
+      description="Your one stop shop for most homely needs"
       className="container-fluid"
     >
       <Search />
@@ -48,7 +48,7 @@ const Home = () => {
       <div className="row">
         {productsByArrival.map((product, i) => (
           // using key in div instead of card to take effect on the div
-          <div key={i} className="col-4 mb-3">
+          <div key={i} className="col-lg-4 col-md-6 col-sm-12 mb-3">
             <Card product={product} />
           </div>
         ))}
@@ -57,7 +57,7 @@ const Home = () => {
       <h2 className="mb-4">Best Sellers</h2>
       <div className="row">
         {productsBySell.map((product, i) => (
-          <div key={i} className="col-4 mb-3">
+          <div key={i} className="col-lg-4 col-md-6 col-sm-12 mb-3">
             <Card product={product} />
           </div>
         ))}

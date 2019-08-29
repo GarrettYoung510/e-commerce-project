@@ -7,6 +7,7 @@ const Product = props => {
   const [product, setProduct] = useState({});
   //   default state for error is false
   const [relatedProduct, setRelatedProduct] = useState([]);
+  // eslint-disable-next-line 
   const [error, setError] = useState(false);
 
   const loadSingleProduct = productId => {
