@@ -71,11 +71,11 @@ const AddCategory = () => {
 
     return (
         <Layout
-            title="Add a new category"
-            description={`G'day ${user.name}, ready to add a new category?`}
+            title="True Hermit Essentials"
+            description="Add a new Category"
         >
             <div className="row">
-                <div className="col-md-8 offset-md-2">
+                <div className="col-md-8 offset-md-2 mx-3">
                     {showSuccess()}
                     {showError()}
                     {newCategoryFom()}

@@ -83,7 +83,7 @@ const Signup = () => {
   );
 
   const showError = () => (
-    <div className="alert alert-danger" style={{display: error ? "" : "none" }}>
+    <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
       {error}
     </div>
   );
@@ -99,8 +99,8 @@ const Signup = () => {
 
   return (
     <Layout
-      title="Signup"
-      description="Signup to Node React E-commerce App"
+      title="True Hermit Essentials"
+      description="Signup to unlock your new home experience"
       className="container col-md-8 offset-md-2"
     >
       {showSuccess()}

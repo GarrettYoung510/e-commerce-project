@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { listOrders, getStatusValues, updateOrderStatus } from "./apiAdmin";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -91,12 +92,18 @@ const Orders = () => {
     </div>
   );
 
+  const goBack = () => (
+    <div className="mt-5">
+      <Link to="/admin/dashboard" className="text-warning">
+        Back to Dashboard
+            </Link>
+    </div>
+  );
+
   return (
     <Layout
-      title="Orders"
-      description={`G'day ${
-        user.name
-        }, you can manage all the orders here`}
+      title="True Hermit Essentials"
+      description="Manage customer's Orders"
       className="container-fluid"
     >
       <div className="row">
@@ -111,7 +118,7 @@ const Orders = () => {
                 style={{ borderBottom: "5px solid indigo" }}
               >
                 <h2 className="mb-5">
-                  <span className="bg-primary">
+                  <span className="bg-light">
                     Order ID: {o._id}
                   </span>
                 </h2>
@@ -162,7 +169,9 @@ const Orders = () => {
             );
           })}
         </div>
+
       </div>
+      {goBack()}
     </Layout>
   );
 };

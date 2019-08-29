@@ -34,10 +34,18 @@ const ManageProducts = () => {
     loadProducts();
   }, []);
 
+  const goBack = () => (
+    <div className="mt-5">
+      <Link to="/admin/dashboard" className="text-warning">
+        Back to Dashboard
+            </Link>
+    </div>
+  );
+
   return (
     <Layout
-      title="Manage Products"
-      description="Perform CRUD on products"
+      title="True Hermit Essentials"
+      description="Manage your existing Products"
       className="container-fluid"
     >
       <div className="row">
@@ -66,6 +74,7 @@ const ManageProducts = () => {
           </ul>
         </div>
       </div>
+      {goBack()}
     </Layout>
   );
 };

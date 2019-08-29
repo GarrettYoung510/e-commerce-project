@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Redirect } from "react-router-dom";
 import { getProduct, getCategories, updateProduct } from "./apiAdmin";
+import { Link } from "react-router-dom";
 
 const UpdateProduct = ({ match }) => {
     const [values, setValues] = useState({
@@ -233,18 +234,27 @@ const UpdateProduct = ({ match }) => {
         }
     };
 
+    const goBack = () => (
+        <div className="mt-5">
+            <Link to="/admin/products" className="text-warning">
+                Back to Manage Prodeucts
+                </Link>
+        </div>
+    );
+
     return (
         <Layout
-            title="Add a new product"
-            description={`G'day ${user.name}, ready to add a new product?`}
+            title="True Hermit Essentials"
+            description="Update the existing Product"
         >
             <div className="row">
-                <div className="col-md-8 offset-md-2">
+                <div className="col-md-8 offset-md-2 mx-3">
                     {showLoading()}
                     {showSuccess()}
                     {showError()}
                     {newPostForm()}
                     {redirectUser()}
+                    {goBack()}
                 </div>
             </div>
         </Layout>

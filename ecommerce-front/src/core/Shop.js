@@ -102,34 +102,40 @@ const Shop = () => {
 
   return (
     <Layout
-      title="Shop Page"
-      description="Search and find books of your choice"
+      title="True Hermit Essentials"
+      description="Browse and find your home necessities"
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-4">
-          <h4>Filter by categories</h4>
-          <ul>
-            <Checkbox
-              categories={categories}
-              handleFilters={filters => handleFilters(filters, "category")}
-            />
-          </ul>
+        <div className="col-md-3 col-lg-3">
+          <div className="row">
+            <div className="col-xs-6 ml-3 mr-3 mb-3">
+              <h4>Filter by Category</h4>
+              <ul>
+                <Checkbox
+                  categories={categories}
+                  handleFilters={filters => handleFilters(filters, "category")}
+                />
+              </ul>
+            </div>
 
-          <h4>Filter by price range</h4>
-          <div>
-            <RadioBox
-              prices={prices}
-              handleFilters={filters => handleFilters(filters, "price")}
-            />
+            <div className="col-xs-6 ml-3 mr-3 mb-3">
+              <h4>Filter by Price</h4>
+              <div>
+                <RadioBox
+                  prices={prices}
+                  handleFilters={filters => handleFilters(filters, "price")}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="col-8">
+        <div className="col-md-9 col-lg-9">
           <h2 className="mb-4">Products</h2>
           <div className="row">
             {filteredResults.map((product, i) => (
-              <div key={i} className="col-4 mb-3">
+              <div key={i} className="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <Card product={product} />
               </div>
             ))}

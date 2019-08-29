@@ -74,12 +74,12 @@ const Signin = () => {
 
   const showError = () => (
     <div
-        className="alert alert-danger"
-        style={{ display: error ? "" : "none" }}
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}
     >
-        {error}
+      {error}
     </div>
-);
+  );
 
   const showLoading = () =>
     loading && (
@@ -104,8 +104,8 @@ const Signin = () => {
 
   return (
     <Layout
-      title="Signin"
-      description="Signin to Node React E-commerce App"
+      title="True Hermit Essentials"
+      description="Signin to begin shopping"
       className="container col-md-8 offset-md-2"
     >
       {showLoading()}

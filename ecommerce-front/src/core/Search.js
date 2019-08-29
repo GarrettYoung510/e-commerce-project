@@ -68,7 +68,7 @@ const Search = () => {
                 <h2 className="mt-4 mb-4">
                     {searchMessage(searched, results)}
                 </h2>
-                <div className="row">
+                <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
                     {results.map((product, i) => (
                         <Card key={i} product={product} />
                     ))}
@@ -114,8 +114,8 @@ const Search = () => {
 
     return (
         <div className="row">
-            <div className="container mb-3 searchStyles">{searchForm()}</div>
-            <div className="container-fluid mb-3">
+            <div className="container mb-3">{searchForm()}</div>
+            <div className="container-fluid">
                 {searchedProducts(results)}
             </div>
         </div>

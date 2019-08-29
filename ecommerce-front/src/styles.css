@@ -208,4 +208,18 @@
   height: 200px;
   margin-left: 25%;
   margin-right: 25%;
+  transition: all .2s ease-in-out;
+}
+  
+.card-body img:hover {
+  transform: scale(1.1);
+}
+
+/* button effects */
+.btn { 
+  border-radius: 5px;
+}
+
+.btn:hover {
+  border-radius: 10px;
 }
