@@ -1,4 +1,13 @@
 /**
+ * prevent whitespace
+ */
+ 
+ html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/**
  * border radius
  */
 
@@ -33,6 +42,7 @@
 }
 
 /* black shade form 10-1 */
+
 .black-10 {
   background: #f2f2f2;
 }
@@ -208,4 +218,43 @@
   height: 200px;
   margin-left: 25%;
   margin-right: 25%;
+  transition: all .2s ease-in-out;
+}
+  
+.card-body img:hover {
+  transform: scale(1.1);
+}
+
+/* button effects */
+
+.btn { 
+  border-radius: 5px;
+}
+
+.btn:hover {
+  border-radius: 10px;
+}
+
+/**
+  * menu styling
+  */
+
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  opacity: .75;
+  background-image: url('https://cdn.wallpapersafari.com/29/67/iYwNlC.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.nav-items {
+  font-size: 18px;
 }

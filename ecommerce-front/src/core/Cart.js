@@ -39,18 +39,18 @@ const Cart = () => {
 
     return (
         <Layout
-            title="Shopping Cart"
-            description="Manage your cart items. Add, remove, checkout, or continue shopping."
+            title="True Hermit Essentials"
+            description="Manage your Cart items or continue shopping"
             className="container-fluid"
         >
             {/* Display message above cart items */}
             <div className="row">
-                <div className="col-6">
+                <div className="col-md-6 col-xs-12 mb-4">
                     {items.length > 0 ? showItems(items) : noItemsMessage()}
                 </div>
 
                 {/* Display Checkout Review */}
-                <div className="col-6">
+                <div className="col-md-6 col-xs-12">
                     <h2 className="mb-4">Your cart summary</h2>
                     <hr />
                     <Checkout products={items} />

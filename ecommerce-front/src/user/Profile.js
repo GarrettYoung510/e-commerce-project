@@ -101,7 +101,7 @@ const Profile = ({ match }) => {
 
     return (
         <Layout
-            title="Profile"
+            title="True Hermit Essentials"
             description="Update your profile"
             className="container-fluid"
         >

@@ -56,13 +56,13 @@ const AdminDashboard = () => {
 
   return (
     <Layout
-      title="Dashboard"
-      description={`Hello ${name}!`}
+      title="True Hermit Essentials"
+      description={`Hello ${name}, this is your admin Dashboard`}
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-3">{adminLinks()}</div>
-        <div className="col-9">{adminInfo()}</div>
+        <div className="col-xs-12 col-md-3 mb-5">{adminLinks()}</div>
+        <div className="col-xs-12 col-md-9">{adminInfo()}</div>
       </div>
     </Layout>
   );

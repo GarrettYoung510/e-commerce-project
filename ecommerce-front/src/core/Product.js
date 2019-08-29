@@ -36,24 +36,24 @@ const Product = props => {
 
   return (
     <Layout
-      title={product && product.name}
+      title="True Hermit Essentials"
       description={
-        product && product.description && product.description.substring(0, 100)
+        product && product.name
       }
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-8">
+        <div className="col-xs-12 col-md-6 col-lg-4 mb-3 mr-3">
           {product && product.description && (
             <Card product={product} showViewProductButton={false} />
           )}
         </div>
 
-        <div className="col-4">
+        <div className="col-xs-12 col-md-6 col-lg-4">
           <h4>Related products</h4>
           {/* map function always takes in a key */}
           {relatedProduct.map((p, i) => (
-            <div className="mb-3">
+            <div className="col-xs-12 mb-3">
               <Card key={i} product={p} />
             </div>
           ))}

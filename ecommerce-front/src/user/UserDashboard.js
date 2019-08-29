@@ -3,7 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getPurchaseHistory } from "./apiUser";
-import moment from "moment";
+// import moment from "moment";
 
 const Dashboard = () => {
   const [history, setHistory] = useState([]);
@@ -80,12 +80,12 @@ const Dashboard = () => {
                         <h6>
                           Product price: ${p.price}
                         </h6>
-                        <h6>
+                        {/* <h6>
                           Purchased date:{" "}
                           {moment(
                             p.createdAt
                           ).fromNow()}
-                        </h6>
+                        </h6> */}
                       </div>
                     );
                   })}
@@ -100,13 +100,13 @@ const Dashboard = () => {
 
   return (
     <Layout
-      title="Dashboard"
-      description={`G'day ${name}!`}
+      title="True Hermit Essentials"
+      description={`Welcome to your Dashboard, ${name}!`}
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-3">{userLinks()}</div>
-        <div className="col-9">
+        <div className="col-xs-12 col-md-3 mb-5">{userLinks()}</div>
+        <div className="col-xs-12 col-md-9">
           {userInfo()}
           {purchaseHistory(history)}
         </div>

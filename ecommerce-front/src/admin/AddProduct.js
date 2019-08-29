@@ -201,17 +201,26 @@ const AddProduct = () => {
             </div>
         );
 
+    const goBack = () => (
+        <div className="mt-5">
+            <Link to="/admin/dashboard" className="text-warning">
+                Back to Dashboard
+                </Link>
+        </div>
+    );
+
     return (
         <Layout
-            title="Add a new product"
-            description={`G'day ${user.name}, ready to add a new product?`}
+            title="True Hermit Essentials"
+            description="Add a new Product"
         >
             <div className="row">
-                <div className="col-md-8 offset-md-2">
+                <div className="col-md-8 offset-md-2 mx-3">
                     {showLoading()}
                     {showSuccess()}
                     {showError()}
                     {newPostForm()}
+                    {goBack()}
                 </div>
             </div>
         </Layout>
