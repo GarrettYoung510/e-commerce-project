@@ -99,7 +99,7 @@ const Search = () => {
                         type="search"
                         className="form-control"
                         onChange={handleChange("search")}
-                        placeholder="Search by name"
+                        placeholder=""
                     />
                 </div>
                 <div
@@ -114,7 +114,7 @@ const Search = () => {
 
     return (
         <div className="row">
-            <div className="container mb-3">{searchForm()}</div>
+            <div className="container mb-3 searchStyles">{searchForm()}</div>
             <div className="container-fluid mb-3">
                 {searchedProducts(results)}
             </div>

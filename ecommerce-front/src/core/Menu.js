@@ -70,7 +70,7 @@ const Menu = ({ history }) => (
                   </Link>
         </li>
       )}
-      
+
       {/* If not authenticated we only show those two blocks of sign in and sign up */}
       {!isAuthenticated() && (
         <Fragment>
