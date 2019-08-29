@@ -204,9 +204,8 @@
   border-block-end-style: groove;
 }
 
-
 .card-body img {
   height: 200px;
-  width: fit-content;
-  margin: auto;
+  margin-left: 25%;
+  margin-right: 25%;
 }
