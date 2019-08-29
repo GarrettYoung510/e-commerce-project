@@ -109,7 +109,7 @@ const Shop = () => {
       <div className="row">
         <div className="col-md-3 col-lg-3">
           <div className="row">
-            <div className="col-xs-6 ml-3 mr-3 mb-3">
+            <div className="col-xs-6 ml-3 mr-auto mb-3">
               <h4>Filter by Category</h4>
               <ul>
                 <Checkbox
@@ -119,7 +119,7 @@ const Shop = () => {
               </ul>
             </div>
 
-            <div className="col-xs-6 ml-3 mr-3 mb-3">
+            <div className="col-xs-6 ml-3 mr-auto mb-3">
               <h4>Filter by Price</h4>
               <div>
                 <RadioBox

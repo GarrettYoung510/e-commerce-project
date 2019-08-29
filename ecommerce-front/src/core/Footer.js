@@ -12,7 +12,7 @@ const Footer = () => {
                         <br></br>Enjoy your solitude with our ameneties.</p>
                     </div>
 
-                    <div className="col-xs-6 mx-5 px-3">
+                    <div className="col-xs-6 mx-auto px-2">
                         <h5 className="title">Birna Dam</h5>
                         <ul>
                             <li className="list-unstyled">
@@ -26,7 +26,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-xs-6 mx-5 px-3">
+                    <div className="col-xs-6 mx-auto px-2">
                         <h5 className="title">Garrett Young</h5>
                         <ul>
                             <li className="list-unstyled">
