@@ -17,3 +17,4 @@ User controls: Add to cart, purchase, search for products, view products by pric
 - Cookie-parser
 - Local Storage (for user cart)
 - Moment (calculate time product was posted)
+- Digital Ocean (deployment)
