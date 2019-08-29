@@ -234,3 +234,27 @@
 .btn:hover {
   border-radius: 10px;
 }
+
+/**
+  * menu styling
+  */
+
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  opacity: .75;
+  background-image: url('https://cdn.wallpapersafari.com/29/67/iYwNlC.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.nav-items {
+  font-size: 18px;
+}

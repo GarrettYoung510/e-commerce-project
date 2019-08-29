@@ -2,10 +2,10 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div className="font-small pt-4 mt-4 bg-default bg-light ">
-            <div className="container-fluid text-center text-md-left mx-5 px-5">
+        <div className="font-small pt-4 mt-4 bg-default bg-light">
+            <div className="container-fluid ">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 text-center mx-5">
                         <h5 className="title">True Hermit Essentials</h5>
                         <p className="mt-3">
                             A site made for homebodies.
@@ -39,6 +39,7 @@ const Footer = () => {
                                 <a href="https://garrettyoung510.github.io/React-Portfolio/">Portfolio</a>
                             </li>
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -48,6 +49,7 @@ const Footer = () => {
                     </div>
             </div>
         </div>
+
     );
 }
 
