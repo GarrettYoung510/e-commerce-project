@@ -5,7 +5,7 @@ View here: http://157.230.207.13/
 
 THEssentials, True Hermit Essentials, is an ecommerce site created for homebodies. Purchase all your stay at home necessities here. Come take a gander; don't be shy, you can do it from your home.
 
-__There are two different types of controls, for now admin controls are kept for the creators only__
+*There are two different types of controls, for now admin controls are kept for the creators only*
 <br>1 - Admin controls: Create categories, view orders, create, manage, update, and delete products
 <br>2 - User controls: Add to cart, purchase, search for products, and filter products by price category or price
 
