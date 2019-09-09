@@ -1,5 +1,5 @@
 # THEssentials
-View here: http://157.230.207.13/
+view here: http://thessentials.club or http://157.230.207.13/
 
 ## Summary
 
