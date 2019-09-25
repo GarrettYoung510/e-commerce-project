@@ -10,8 +10,6 @@ THEssentials, True Hermit Essentials, is an ecommerce site created for homebodie
 <br>1 - Admin controls: Create categories, view orders, create, manage, update, and delete products
 <br>2 - User controls: Add to cart, purchase, search for products, and filter products by price category or price
 
-[demo image here](https://birnapwnsu.github.io/portfolio/img/thessentials.jpg)
-
 ## How it was created
 ### The Process
 - Divided the work after wireframing the site
