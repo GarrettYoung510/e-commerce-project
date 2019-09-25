@@ -4,13 +4,13 @@
 
 ![Home Page](https://media.giphy.com/media/Vi6nHqi5rWENEuLbRj/giphy.gif)
 
-**Sign In**
-
-![Sign In](https://media.giphy.com/media/Zd0ok2deO3BX8i3Qe2/giphy.gif)
-
 **Sign Up**
 
 ![Sign Up](https://media.giphy.com/media/Y022Ycn4HHkrLSHX9F/giphy.gif)
+
+**Sign In**
+
+![Sign In](https://media.giphy.com/media/Zd0ok2deO3BX8i3Qe2/giphy.gif)
 
 **Shopping Experience** 
 
