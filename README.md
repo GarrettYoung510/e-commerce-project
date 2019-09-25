@@ -10,7 +10,7 @@
 
 **Sign Up**
 
-![Sign Up](https://media.giphy.com/media/XbZv9R0qPdvkJRZpAM/giphy.gif)
+![Sign Up](https://media.giphy.com/media/Y022Ycn4HHkrLSHX9F/giphy.gif)
 
 **Shopping Experience** 
 
