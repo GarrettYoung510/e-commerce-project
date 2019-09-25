@@ -6,7 +6,7 @@
 
 **Sign Up**
 
-![Sign Up](https://media.giphy.com/media/Y022Ycn4HHkrLSHX9F/giphy.gif)
+![Sign Up](https://media.giphy.com/media/MeP2lfBENGlsIdVLe9/giphy.gif)
 
 **Sign In**
 
