@@ -4,7 +4,7 @@
 
 ![Home Page](https://media.giphy.com/media/Vi6nHqi5rWENEuLbRj/giphy.gif)
 
-**Sign in**
+**Sign In**
 
 ![Sign In](https://media.giphy.com/media/Zd0ok2deO3BX8i3Qe2/giphy.gif)
 
