@@ -3,7 +3,6 @@
 THEssentials.club
 
 ![HomePage](https://media.giphy.com/media/Vi6nHqi5rWENEuLbRj/giphy.gif)
-![Sign Up](https://media.giphy.com/media/XbZv9R0qPdvkJRZpAM/giphy.gif)
 ![Sign In](https://media.giphy.com/media/Zd0ok2deO3BX8i3Qe2/giphy.gif)
 ![User Shop](https://media.giphy.com/media/mCK5kt7vBL44h4NvUb/giphy.gif)
 ![Admin Create](https://media.giphy.com/media/iI9oA24vUUJrLFpBaI/giphy.gif)
